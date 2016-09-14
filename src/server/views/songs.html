@@ -1,0 +1,61 @@
+{% extends "_base.html" %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+
+  <div class="container">
+    <h1>All the songs</h1>
+    <a href="songs/new" class="btn btn-success btn-md">Add song</a>
+    <h4 class="message">{{message}}</h4>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Artist</th>
+          <th>Album</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for song in songs %}
+        <tr id={{song.id}}>
+          <td>{{song.title}}</td>
+          <td>{{song.artist}}</td>
+          <td>{{song.album}}</td>
+          <td>
+            <button class="btn btn-primary btn-sm update" data-toggle="modal" data-target="#myModal" data-id={{song.id}}>Update</button>
+          </td>
+          <td>
+            <button class="btn btn-danger btn-sm delete" data-id={{song.id}} data-title="{{song.title}}" data-artist="{{song.artist}}" data-album="{{song.album}}">X</button>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <form id="modal-form">
+              <div class="form-group">
+                <input type="text" class="form-control" name="title" id="input-title" placeholder="title">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" name="artist" id="input-artist" placeholder="artist">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" name="album" id="input-album" placeholder="album">
+              </div>
+              <input type="hidden" name="id" id="input-id">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Save changes</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "_base.html" %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+
+  <div class="container">
+    <h1>Add New Song</h1>
+    <br>
+    {% if errors.length %}
+      <ul>
+        {% for error in errors %}
+        <li class="error">{{error}}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+    <form method="POST" action="/songs/new">
+      <div class="form-group">
+        <input type="text" class="form-control" name="title" placeholder="Enter a title">
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" name="artist" placeholder="Enter a artist">
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" name="album" placeholder="Enter an album">
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+  </div>
+
+{% endblock %}
