@@ -1,7 +1,6 @@
 (function () {
 
   $('.delete').on('click', function() {
-    //console.log($(this).data);
     let songId = $(this).data('id');
     let songTitle = $(this).data('title');
     let songArtist = $(this).data('artist');
@@ -11,7 +10,7 @@
 
     if (doubleCheck) {
       $.ajax ({
-        url: 'http://localhost:3000/songs/' + songId,
+        url: '/songs/' + songId,
         method: 'DELETE'
       }).done(function(data) {
         var deletedSong = data.id;
@@ -38,7 +37,7 @@
       album: $('#input-album').val() || null
     };
     $.ajax({
-      url: 'http://localhost:3000/songs/' + songId,
+      url: '/songs/' + songId,
       method: 'PUT',
       data: updateObject
     }).done(function(data) {
