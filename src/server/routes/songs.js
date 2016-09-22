@@ -67,7 +67,6 @@ router.put('/:id', function (req, res, next) {
         }
       }
     }).then(() => {
-      console.log(newSong);
       return knex('songs')
         .update({
           title: newSong.title,
