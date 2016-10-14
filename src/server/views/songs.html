@@ -5,33 +5,35 @@
 {% block content %}
 
   <div class="container">
-    <h1>All the songs</h1>
-    <a href="songs/new" class="btn btn-success btn-md">Add song</a>
-    <h4 class="message">{{message}}</h4>
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Title</th>
-          <th>Artist</th>
-          <th>Album</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for song in songs %}
-        <tr id={{song.id}}>
-          <td>{{song.title}}</td>
-          <td>{{song.artist}}</td>
-          <td>{{song.album}}</td>
-          <td>
-            <button class="btn btn-primary btn-sm update" data-toggle="modal" data-target="#myModal" data-id={{song.id}}>Update</button>
-          </td>
-          <td>
-            <button class="btn btn-danger btn-sm delete" data-id={{song.id}} data-title="{{song.title}}" data-artist="{{song.artist}}" data-album="{{song.album}}">X</button>
-          </td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
+    <div class="songsBox">
+      <h1>Songs</h1>
+      <a href="songs/new" class="btn btn-success btn-md">Add song</a>
+      <h4 class="message">{{message}}</h4>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Artist</th>
+            <th>Album</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for song in songs %}
+          <tr id={{song.id}}>
+            <td>{{song.title}}</td>
+            <td>{{song.artist}}</td>
+            <td>{{song.album}}</td>
+            <td>
+              <button class="btn btn-primary btn-sm update" data-toggle="modal" data-target="#myModal" data-id={{song.id}}>Update</button>
+            </td>
+            <td>
+              <button class="btn btn-danger btn-sm delete" data-id={{song.id}} data-title="{{song.title}}" data-artist="{{song.artist}}" data-album="{{song.album}}">X</button>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
 
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
       <div class="modal-dialog" role="document">

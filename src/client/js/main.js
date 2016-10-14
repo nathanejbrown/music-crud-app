@@ -41,11 +41,19 @@
       method: 'PUT',
       data: updateObject
     }).done(function(data) {
-      console.log(data);
       location.reload();
     }).fail(function(err) {
       console.log(err);
     });
+  });
+
+  $(document).ready(function() {
+    var images = ['https://hd.unsplash.com/photo-1452456972043-e3fd21612d9f', 'https://hd.unsplash.com/photo-1470447149612-a1ed521fbcae', 'https://images.unsplash.com/photo-1474420955179-b061b669ba2f?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&s=004a934a707998cf61299f0f87da3d62', 'https://images.unsplash.com/photo-1474432377109-8d2d5109c1d2?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&s=9e5995ec3f00f13c9d8f75a6059055c1', 'https://hd.unsplash.com/photo-1422034681339-7b5dbb46db18'];
+
+    var randomNumber = Math.floor(Math.random() * images.length);
+    var bgImg = 'url(' + images[randomNumber] + ')';
+    $('body').css('background-image', bgImg);
+
   });
 
 })();

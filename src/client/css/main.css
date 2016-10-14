@@ -1,6 +1,10 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
 }
 
 a {
@@ -8,4 +12,11 @@ a {
 }
 .message {
   display: none;
+}
+
+.songsBox {
+  background: white;
+  opacity: 0.7;
+  padding: 8px;
+  border-radius: 5px;
 }
