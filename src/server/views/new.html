@@ -6,6 +6,7 @@
 
   <div class="container formBox">
     <h1>Add New Song</h1>
+    <a href="/songs" class="right"><button type="submit" class="btn btn-primary">Home</button></a>
     <br>
     {% if errors.length %}
       <ul>
@@ -24,7 +25,7 @@
       <div class="form-group">
         <input type="text" class="form-control" name="album" placeholder="Enter an album">
       </div>
-      <button type="submit" class="btn btn-default">Submit</button>
+      <button type="submit" class="btn btn-success">Submit</button>
     </form>
   </div>
 
